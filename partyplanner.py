@@ -1,0 +1,22 @@
+from tkinter import *
+gui = Tk()
+gui.geometry("500x500")
+entername = Entry(gui)
+entername.place(x=100, y=170)
+def deletebutton():
+    curs=list1.curselection()
+    list1.delete(curs)
+delete=Button(gui,text='delete',bg='white',command=deletebutton)
+def addbutton():
+    use = entername.get()
+    list1.insert(END, use)
+add = Button(gui, text='add', bg='white',  command=addbutton)
+delete.place(x=150,y=260)
+add.place(x=120, y=200)
+frame = Frame(gui)
+frame.place(x=200, y=200)
+scroll = Scrollbar(frame)
+scroll.pack(side=RIGHT, fill=Y)
+list1 = Listbox(frame)
+list1.pack()
+gui.mainloop()
